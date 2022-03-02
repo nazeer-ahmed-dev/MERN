@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -24,6 +25,7 @@ import App from './started/cardapp';
 import Empbeding_expression_into_jsx from './Docs/jsx';
 import Comp_and_props from './Docs/componentandProps'
 
+const array = [<Empbeding_expression_into_jsx/>,<Comp_and_props/>]
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -74,7 +76,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [value , setValue] = useState("")
+  const [value , setValue] = useState(0)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -125,8 +127,10 @@ export default function PersistentDrawerLeft() {
         <List>
           {['JSX', 'Component & props', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text} onClick={()=>{
-              setValue(text)
-          }} >
+              setValue(index)
+                  
+               
+              }} >
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
@@ -148,13 +152,10 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Typography paragraph>
-           {/* <ToAdd></ToAdd>
-           <Timer></Timer>
-            <p>{value}</p>
-            <App title="The Github Card App "></App> */}
-            <Comp_and_props></Comp_and_props>
-            <Empbeding_expression_into_jsx> </Empbeding_expression_into_jsx>
+        <Typography paragraph className='toChange'>
+            {
+             array[value]
+            }
             
         </Typography>
        

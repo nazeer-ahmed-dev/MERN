@@ -19,7 +19,7 @@ export default function Empbeding_expression_into_jsx()
     return <div className="jsx_practise">
             <img src={pic} alt="pic" style={{width:"75px",height:"75px"}}/>
         <div style={{display:"inline-block" , marginLeft:"20px"}}> 
-            <h2>Working JSX....</h2>
+            <h2>Working on React....</h2>
             <h2>Hi , {conactination()} </h2>
     </div></div>
     
