@@ -28,8 +28,8 @@ export default class App extends React.Component
     render()
     {
         return (
-        <div>
-             <div className="header">{this.props.title}</div>
+        <div  className="jsx_practise">
+             <div >{this.props.title}</div>
              <Form onSubmit={this.addNew}/>
              <Cardlist prof={this.state.profi}/>
 
@@ -44,7 +44,7 @@ class Card extends React.Component
     {
         const profile = this.props;
         return (
-        <div className="github-profile" style={{margin:'1rem'}}>
+        <div className="github-profile" style={{margin:'1rem'}} >
             <img src={profile.avatar_url} alt="Foo eating a sandwich." style={{height:'75px' , width:'75px'}}/>
             <div className="info" style={{display:'inline-block',marginLeft:10}}>
                 <div className="name" style={{fontSize:'125%',color:Math.random() > 0.5 ? 'green':'reed'}}>{profile.name}</div>
