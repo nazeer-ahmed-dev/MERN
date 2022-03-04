@@ -1,5 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../App.css";
+let data = [
+  {name: "Nazeer", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
+  {name: "Haseeb", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
+  {name: "Umair", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
+  ];
+  
+// data = fetch("http://localhost:3001/food").then(res=>{res.json()})
 export default function Crud() {
   const [Val, setVal] = useState();
   const [Q, setQ] = useState();
@@ -35,7 +43,7 @@ export default function Crud() {
 
         <div className="d-flex justify-content-evenly">
         <button type="button" class="btn btn-primary d-block" onClick={() => {
-              AddDAta(Val, Q);
+              post(Val, Q);
             }}>ADD</button>
            
         </div>
@@ -56,18 +64,9 @@ export default function Crud() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td className="d-flex justify-content-around">
-                <button type="button" class="btn btn-primary">ADD</button>
-                <button type="button" class="btn btn-primary">ADD</button>
-                <button type="button" class="btn btn-primary">ADD</button>
-                
-                </td>
-            
-          </tr>
+    
+ 
+              <GetData/>
         </tbody>
       </table>
       </div>
@@ -75,6 +74,81 @@ export default function Crud() {
     </div>
   );
 }
-function AddDAta(val, Q) {
-  console.log(val, Q);
+
+
+
+
+function post(val,q)
+    {
+        fetch('http://localhost:3001/food',{
+            method:'POST',
+            body:JSON.stringify(
+                {
+                    foodName:val,
+                    daysSinceIAate:q,
+                }
+            ),
+            headers:{
+                "Content-type":"application/json; charset=UTF-8"
+            }
+        }).then(res=>res.json()).then(data=>console.log(data))
+    }
+  function GetData()
+{
+  const [posts,setPosts] = useState([])
+  useEffect(()=>{
+    axios.get('http://localhost:3001/food').then(res=>{console.log(res); setPosts(res.data)}).then(err=>{console.log(err)})
+    
+  })
+
+  return posts.map((student,index) => {
+    const { foodName,daysSinceIAate } = student //destructuring
+    return (
+       <tr>
+            <th scope="row">1</th>
+          <td>{foodName}</td>
+          <td>{daysSinceIAate}</td>
+          <td className="d-flex justify-content-around">
+              <button type="button" class="btn btn-primary" >Delete</button>
+              <button type="button" class="btn btn-primary">Edit</button>
+              <button type="button" class="btn btn-primary">Duplicate</button>
+              </td>
+       </tr>
+    )
+ })
 }
+  // function showDate() {
+
+  //         return <tr>
+  //           <th scope="row">1</th>
+  //             <td>hello</td>
+  //         </tr>
+
+  //       // const data = await fetch('http://localhost:3001/food').then(res =>res.json()).then(err=>console.log(err))
+  //       // console.log(data)
+  //       // data.map((value)=>{
+  //       //     return  <tr>
+  //       //     <th scope="row">1</th>
+  //       //     <td>{value.foodName}a</td>
+  //       //     <td>{value.daysSinceIAate}</td>
+  //       //     <td className="d-flex justify-content-around">
+  //       //         <button type="button" class="btn btn-primary">Delete</button>
+  //       //         <button type="button" class="btn btn-primary">Edit</button>
+  //       //         <button type="button" class="btn btn-primary">Duplicate</button>
+                
+  //       //         </td>
+            
+  //       //   </tr>
+              
+  //       // })
+            
+      
+  //     }
+
+//   async function getData()
+// {
+//   data = await fetch('http://localhost:3001/food').then(res =>res.json()).then(err=>console.log(err))
+//   setdat(data)
+//   console.log(dat[0].foodName)
+// }
+// getData()
