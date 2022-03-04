@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
-let data = [
-  {name: "Nazeer", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-  {name: "Haseeb", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-  {name: "Umair", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
-  ];
-  
+
 // data = fetch("http://localhost:3001/food").then(res=>{res.json()})
 export default function Crud() {
   const [Val, setVal] = useState();
@@ -102,14 +97,16 @@ function post(val,q)
   })
 
   return posts.map((student,index) => {
-    const { foodName,daysSinceIAate } = student //destructuring
+    const { _id,foodName,daysSinceIAate } = student //destructuring
     return (
-       <tr>
-            <th scope="row">1</th>
+       <tr id={_id}>
+            <th scope="row">{index}</th>
           <td>{foodName}</td>
           <td>{daysSinceIAate}</td>
           <td className="d-flex justify-content-around">
-              <button type="button" class="btn btn-primary" >Delete</button>
+              <button id={_id} type="button" class="btn btn-primary"onClick={(e)=>{
+                Delete(e.target.id)
+              }} >Delete</button>
               <button type="button" class="btn btn-primary">Edit</button>
               <button type="button" class="btn btn-primary">Duplicate</button>
               </td>
@@ -152,3 +149,11 @@ function post(val,q)
 //   console.log(dat[0].foodName)
 // }
 // getData()
+
+
+function Delete(va)
+{
+   fetch('http://localhost:3001/food/'+va,{
+      method: 'DELETE'
+     })
+}
