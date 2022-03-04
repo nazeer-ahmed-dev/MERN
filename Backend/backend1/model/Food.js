@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 //const { post } = require('../routes/posts')
 
 const foodSchema = mongoose.Schema({
@@ -14,4 +14,5 @@ const foodSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Crud_food',foodSchema) // name of table
+const Data = mongoose.model('Crud_food',foodSchema) // name of table
+export default Data;
