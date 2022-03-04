@@ -25,8 +25,9 @@ import App from './started/cardapp';
 import Empbeding_expression_into_jsx from './Docs/jsx';
 import Comp_and_props from './Docs/componentandProps';
 import Tick from './Docs/State';
+import Crud from './crud/crud';
 
-const array = [<Empbeding_expression_into_jsx/>,<Comp_and_props/>,<App/>,<Tick/>]
+const array = [<Empbeding_expression_into_jsx/>,<Comp_and_props/>,<App/>,<Tick/>,<Crud/>]
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -126,7 +127,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['JSX', 'Component & props', 'Card App', 'State','Life Cycle'].map((text, index) => (
+          {['JSX', 'Component & props', 'Card App', 'State','Life Cycle','CRUD'].map((text, index) => (
             <ListItem button key={text} onClick={()=>{
               setValue(index)
                   

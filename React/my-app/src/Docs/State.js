@@ -7,10 +7,12 @@ export default function Tick()
 {
     const [time ,setTime] = useState(new Date().toLocaleString())
     setInterval(toChange,1000);
-    return <div>
+    return <div className="jsx_practise">
                 <h1>Time : {time}</h1>
     </div>
     function toChange() {
             setTime(new Date().toLocaleString())
     }  
 }
+
+// Class Component
