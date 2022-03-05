@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
+let trigger = false;
 
 // data = fetch("http://localhost:3001/food").then(res=>{res.json()})
 export default function Crud() {
@@ -8,6 +9,7 @@ export default function Crud() {
   const [Q, setQ] = useState();
 
   return (
+    <div>
     <div className="insert_data row">
      <div className="col-md-6 col-sm-12">  
       <div>
@@ -65,7 +67,8 @@ export default function Crud() {
         </tbody>
       </table>
       </div>
-
+      </div>
+      <PopUp foodName="abc" trigger={trigger} foodQuantity="4" />
     </div>
   );
 }
@@ -107,53 +110,56 @@ function post(val,q)
               <button id={_id} type="button" class="btn btn-primary"onClick={(e)=>{
                 Delete(e.target.id)
               }} >Delete</button>
-              <button type="button" class="btn btn-primary">Edit</button>
+              <button   id={_id} type="button" class="btn btn-primary" onClick={(e)=>{
+                     data_adding(e.target.id)
+              }}>Edit</button>
               <button type="button" class="btn btn-primary">Duplicate</button>
               </td>
        </tr>
     )
  })
 }
-  // function showDate() {
+async function data_adding(va)
+{
+  const resp = await fetch('http://localhost:3001/food/'+va)
+  return resp
 
-  //         return <tr>
-  //           <th scope="row">1</th>
-  //             <td>hello</td>
-  //         </tr>
-
-  //       // const data = await fetch('http://localhost:3001/food').then(res =>res.json()).then(err=>console.log(err))
-  //       // console.log(data)
-  //       // data.map((value)=>{
-  //       //     return  <tr>
-  //       //     <th scope="row">1</th>
-  //       //     <td>{value.foodName}a</td>
-  //       //     <td>{value.daysSinceIAate}</td>
-  //       //     <td className="d-flex justify-content-around">
-  //       //         <button type="button" class="btn btn-primary">Delete</button>
-  //       //         <button type="button" class="btn btn-primary">Edit</button>
-  //       //         <button type="button" class="btn btn-primary">Duplicate</button>
-                
-  //       //         </td>
-            
-  //       //   </tr>
-              
-  //       // })
-            
-      
-  //     }
-
-//   async function getData()
-// {
-//   data = await fetch('http://localhost:3001/food').then(res =>res.json()).then(err=>console.log(err))
-//   setdat(data)
-//   console.log(dat[0].foodName)
-// }
-// getData()
-
+}
+function PopUp(props)
+{
+  const [foodN , setfoodN]  = useState(data_adding())
+  
+    return  <div>
+    <div class=" w-40  m-3 position-absolute top-50 start-50 translate-middle bg-info">
+           <div className="m-2  ">
+          <input className="form-control "
+            placeholder="Name" value={foodN}  onChange = {(e)=>setfoodN(e.target.value)}
+            required
+          />
+        </div>
+        <div  className="m-2">
+          <input className="form-control" 
+            placeholder="Quantity" value={FoodQ} onChange = {(e)=>setFooQ(e.target.value)}
+            required
+          />
+        </div>
+        <div className="d-flex justify-content-evenly">
+        <button type="button" class="btn btn-primary d-block" onClick={()=>{
+       
+        }}>Update</button>
+    </div>
+    </div></div>
+}
 
 function Delete(va)
 {
    fetch('http://localhost:3001/food/'+va,{
       method: 'DELETE'
      })
+}
+function Update(val_update)
+{
+    fetch('http://localhost:3001/food/'+val_update,{
+
+    })
 }
