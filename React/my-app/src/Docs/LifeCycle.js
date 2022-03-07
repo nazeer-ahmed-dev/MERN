@@ -1,6 +1,6 @@
 import React from "react";
 
-class LifeCycle extends React.Component
+export default class LifeCycle extends React.Component
 {
     constructor(props)
     {
@@ -13,7 +13,7 @@ class LifeCycle extends React.Component
 
     componentDidMount()
     {
-      
+        this.timerId = setInterval(()=>{this.tick()},1000)
             
     }
     componentDidUpdate()
@@ -22,7 +22,7 @@ class LifeCycle extends React.Component
     }
     componentWillUnmount()
     {
-            clearInterval()
+            clearInterval(this.timerId)
     }
     tick()
     {
@@ -33,7 +33,7 @@ class LifeCycle extends React.Component
     render()
     {
         return(
-            <div>
+            <div className="jsx_practise">
                     <h1>Time : {this.state.time.toLocaleTimeString()}</h1>
             </div>
         )

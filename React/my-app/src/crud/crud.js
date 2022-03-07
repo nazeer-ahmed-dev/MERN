@@ -139,7 +139,7 @@ function PopUp(props)
         </div>
         <div  className="m-2">
           <input className="form-control" 
-            placeholder="Quantity" value={FoodQ} onChange = {(e)=>setFooQ(e.target.value)}
+            placeholder="Quantity" value={foodN}  onChange = {(e)=>setfoodN(e.target.value)}
             required
           />
         </div>

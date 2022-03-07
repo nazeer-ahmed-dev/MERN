@@ -1,9 +1,7 @@
 import React from "react"
 import axios from 'axios';
 const testData = [
-{name: "Nazeer", avatar_url: "https://avatars0.githubusercontent.com/u/810438?v=4", company: "@facebook"},
-{name: "Haseeb", avatar_url: "https://avatars2.githubusercontent.com/u/6820?v=4", company: "Humu"},
-{name: "Umair", avatar_url: "https://avatars2.githubusercontent.com/u/63648?v=4", company: "Facebook"},
+
 ];
 
 export default class App extends React.Component
@@ -83,9 +81,11 @@ class Form extends React.Component
     render()
     {
         return(
-            <form onClick={this.handleFunction}>
-                <input type="text" placeholder="Username"  value = {this.state.userName} onChange={event => this.setState({userName:event.target.value})}/>
-                <button>Add Card</button>
+            <form onClick={this.handleFunction} className="jsx_practise m-4">
+                <h1>Github Api</h1>
+                <br/>
+                <input className="form-control my-2 " type="text" placeholder="Username"  value = {this.state.userName} onChange={event => this.setState({userName:event.target.value})}/>
+                <button className="btn btn-info">Add Card</button>
             </form>
         )
     }

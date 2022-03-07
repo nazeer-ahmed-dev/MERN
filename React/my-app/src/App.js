@@ -26,8 +26,10 @@ import Empbeding_expression_into_jsx from './Docs/jsx';
 import Comp_and_props from './Docs/componentandProps';
 import Tick from './Docs/State';
 import Crud from './crud/crud';
-
-const array = [<Empbeding_expression_into_jsx/>,<Comp_and_props/>,<App/>,<Tick/>,<Crud/>]
+import LifeCycle from './Docs/LifeCycle';
+import EventHandling from './Docs/eventHandling';
+import ConditionalRendring from './Docs/conditionalRendring'
+const array = [<Empbeding_expression_into_jsx/>,<Comp_and_props/>,<App/>,<Tick/>,<LifeCycle/>,<Crud/>,<EventHandling/>,<ConditionalRendring/>]
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -127,7 +129,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['JSX', 'Component & props', 'Card App', 'State','Life Cycle','CRUD'].map((text, index) => (
+          {['JSX', 'Component & props', 'Card App', 'State','Life Cycle','CRUD','Event','Conditional'].map((text, index) => (
             <ListItem button key={text} onClick={()=>{
               setValue(index)
                   
