@@ -31,3 +31,14 @@ export const deletFood = async(req,res)=>{
     await FoodModel.findByIdAndRemove(id).exec();
     res.send("deleted")
 } 
+
+export const updateFood = async(req,res)=>{
+
+}
+
+export const getSpecific  =async (req,res)=>{
+
+    const {id} = req.params
+    const value = await FoodModel.findById(id)
+    res.send(value)
+}
