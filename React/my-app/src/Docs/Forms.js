@@ -101,13 +101,13 @@ export default class Form extends React.Component
                     </div>
                     <div className="col-md-6 col-sm-12">
                         {/* {this.state.isChecked ? */}
-                         <div class="card  m-2 "  style= {{width:'18rem'}}>
+                         <div class="card text-center m-2 "  style= {{width:'18rem'}}>
                             
-                            <img src={this.state.image}  className="card-img-top img-thumbnail" alt="Not Found" style={{height:"200px"}}/>
+                            <img src={this.state.image}  className="card-img-top img-thumbnail" alt="Not Found" style={{height:"300px"}}/>
                             <div class="card-body">
-                            <h5 className="card-title"> {this.state.name}</h5>
+                            <h3 className="card-title"> {this.state.name}</h3>
                             <h4 className="card-title"> {this.state.cms}</h4>
-                            <h3 className="card-title"> {this.state.selectOp}</h3>
+                            <h5 className="card-title"> {this.state.selectOp}</h5>
                             <p class="card-text">{this.state.gender}</p>
                         </div>
                     </div>
