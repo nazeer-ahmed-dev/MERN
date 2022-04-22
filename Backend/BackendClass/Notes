@@ -1,0 +1,71 @@
+/*
+class 1 : by sir
+V8 -> virutal enivorment mulitple script running
+Nodejs for server side is using by v8
+Authentication and authorizaton ( auth2.0 , awt)
+
+-> single thread application : 
+
+
+3 - diff
+    - childporcess
+    - thread pool
+    - cluster
+module in nodejs
+    - builtin 
+    - third party module
+        - by using npm and yarn we use those module
+        - like express
+    - custom module
+        - make your own and use them
+
+
+
+
+
+*/
+
+/*
+class 1 by me
+
+    V8 ->
+        Virtual Enivorment multiple script running Nodejs for Server
+        side is using by v8
+
+    Autentication and Authorization ->
+        Authentication and authorization are used in security, particularly when it comes to getting access to a system. Yet, there is a significant distinction between gaining entry into a house (authentication) and what you can do while inside (authorization).
+    
+    JWT ->
+        JSON Web Tokens (JWT) are an RFC 7519 open industry standard for representing claims between two parties. For example, you can use jwt.io to decode, verify, and produce JWT.
+    
+    Module in NodeJs
+        -> BuiltIn
+        -> Third Party Moduel
+            Bye using npm and yarn we use those module like express
+        -> Custom Module
+            make your own
+    Differnces
+        -> child process
+            Creating multiple thread simultaneously in node js we call it a child proces
+            created using four way which is clubbed in async call like (spawn , fork , exec , execute and execfile)
+            exec -> exectue any script like (echo , home , variable)
+            execFile -> similar to exec but can not run wihtout termial or shell
+            fork and spawn -> fork is special instance of spawn it uses a separate v8 engine so we know that node js run
+                                on v8 engine so when we run fork or when we create a child process using fork it runs on separate v8 engine
+                                but if we run .js using spawn it will be running on same v engine on which the main thread is running but it will run on differnt but on the same v88 engine unliess and until 
+                                spawn(node server.js) : then it will create a differnt v8 engine else it will run on same engine
+            spawn -> meant for huge amount of data so it returns a stream
+            exec -> return a buffer 200k memoery
+        
+        -> Thread Pool
+        -> Cluster
+
+    app.use
+        use is a way to register middleware or chain of middlewares (or multiple middlewares) before executing any end route logic or 
+        intermediary route logic depending upon order of middleware registration sequence.
+
+
+
+
+
+*/
