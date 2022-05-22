@@ -1,4 +1,5 @@
 import FoodModel from "../model/Food.js"
+
 export const addFood = async (req,res)=>{
 
    const {foodName,daysSinceIAate} = req.body

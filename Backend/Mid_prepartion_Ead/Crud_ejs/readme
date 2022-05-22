@@ -1,0 +1,16 @@
+step 1  : project structure 
+-> npm init
+-> create index.js
+-> npm express morgan nodemomn ejs body-parser dotenv mongoose axios
+-> change node -> nodemoon in package.json
+-> create project structure :
+    -> create assets inside assets folder create (css , js , img)
+    -> create views inside this all html file using ejs to create dynamic html
+    -> create server folder for model,  mongodb connection 
+        -- in this project we are using mvc(model , view and controller) pattern : application desgin pattern that seprate        application data and bussniess logic
+    -> create model  controller , routes , services , database folder inside server folder 
+        -- model : we can perform data validation , processing data ,creating mongoschema
+        -- controller : user request for resources from the server
+----------------------
+step 2 : http server
+    -> creating http server in index.js

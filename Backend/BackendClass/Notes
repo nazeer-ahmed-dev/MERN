@@ -65,7 +65,270 @@ class 1 by me
         intermediary route logic depending upon order of middleware registration sequence.
 
 
+*/
+
+/*class - 2 by sir
+
+    steps to create ejs
+        install 
+        app.set 
+        create view folder
+
+    -> if we have use naviagtion bar for 20 pages then we have to craete 20 nav bar for that if for using only html's file
+    so here template engine help
+    -> template engine
+    -> server side rendring using template engine : pug , ejs
+    -> zetcode for pug
+
+
+*/
+
+/*class-2 by me
+
+    -> Template Engine : A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+
+
+*/
+
+/* 
+class-3 by  sir
+    MongoDB Commands-saved on whatsapp
+
+*/
+/* 
+class-4 by  sir
+        db.products.insertmany({})
+
+    -> show databases
+    -> use databasename
+    -> show collection
+    -> db.products.find().pretty()
+    -> db.products.find({}).pretty() : return all
+    -> db.products.find({price:999}).pretty() : condition
+    -> db.products.find({price:999},{name:1}).pretty() : return name 
+    -> db.products.find({},{name:1}).pretty() : return all name 
+    -> db.products.find({},{name:1,price:1,id:0}).pretty()
+    ===> First object Selection and 2nd object Projection
+    -> cursor return first 20 record 
+    -> db.productss.find({},{'spec.ram':1}).pretty()            
+                [
+                    {
+                        spec:{
+                            ram:"a",
+                            ab:"c"
+                        }
+                    }
+                ]
+    -> db.prduc.find({},{spec:{ram:1}}).pretty()
+    -> find.prod.find({price:{$gt:700}},{price:1,name:1,__id:0}).pretty() 
+    -> find.prod.find({'spec.ram':{$gt:64}}).pretty()
+    -> find.prod.find({'spec.ram':64}}).pretty()
+    -> db.product.find({releasdDAte:{$eq: mew ISODate({"2022-09-14"})}}).pretty()
+    -> db.product.find({price:{$ne:599}}).pretty() : not equall also return those record which dont have that object
+    -> db.product.find({'spec.ram':{$ne:64}}).pretty()
+    -> db.product.find({price:{$in:[599,699]}}).pretty()
+    -> db.product.find({color:{$in:["white","Black"]}}).pretty()
+    -> db.product.find({color:{$in:[/^w+/,/^o+/]}}).pretty()
+    -> db.product.find({$and:[{price:599},{'spec.ram':4}]})
+    -> db.product.find({$and:[{price:599},{color:{$in:['black','white']}}]})
+    -> db.product.find({spec:{$exists:true}})
+    -> db.products.find({$or:[{price:599},{'spec.ram':4}]})
+    -> db.prod.find({price:{$not:{$lt:600}}}).pretty()
+
+*/
+/*
+
+ ---------------
+    >  Picture from madan
+    > task : 
+ ---------------
+    Mongooes  is ODM
+        > help to connect front-end and backend it work like bridge
+        >  Applications never connect or communicate directly with the shards. The mongos tracks what data is on which shard by caching the metadata from the config servers.
+    ORM
+        > https://velog.io/@tkp12345/nodeJS-ORM-VS-ODM
+        > is used for relational database
+        > object to table
+    ODM
+        > is used for noSql document based
+        > code first approach
+    MVC
+        > which follow pattern
+
+
+    action in form and method 
+    
+    body parser 
+        > used as middle ware to get the data in req.body
+        > it convert from data into js object type
+    url encoede
+        > 
+    extended : true in url encoded
+        > in object there is value against key , for any type its need true
+          example for nested data encoded true
+            {
+                value : {
+                    name : "abc",
+                    some : [a,b,c]
+                }
+            }
+
 
 
 
 */
+/* MongoDB course
+    -> mongo "mongodb+srv://<username>:<password>@<cluster>.mongodb.net/admin"
+    -> use sample_training
+    -> db.zips.find({ "zip": "12534" }).pretty()
+    -> db.zips.find({ "city": "HUDSON" }).pretty()
+    -> vdb.zips.find({ "city": "HUDSON" }).count()
+    -> db.zips.updateMany({ "city": "HUDSON" }, { "$inc": { "pop": 10 } })
+    -> db.zips.updateOne({ "zip": "12534" }, { "$set": { "pop": 17630 } })
+    -> db.zips.updateOne({ "zip": "12534" }, { "$set": { "population": 17630 } })
+    -> db.grades.find({ "student_id": 151, "class_id": 339 }).pretty()
+    -> db.grades.find({ "student_id": 250, "class_id": 339 }).pretty()
+    -> db.grades.updateOne({ "student_id": 250, "class_id": 339 },
+                    { "$push": { "scores": { "type": "extra credit",
+                                             "score": 100 }
+                                }
+                     })
+    -> db.inspections.deleteMany({ "test": 1 })
+    -> db.inspections.deleteOne({ "test": 3 })
+    -> db.inspection.find().pretty()
+    -> db.inspection.drop()
+    -> db.trips.find({ "tripduration": { "$lte" : 70 },
+                "usertype": "Customer" }).pretty()
+    -> db.trips.find({ "tripduration": { "$lte" : 70 },
+                "usertype": { "$eq": "Customer" }}).pretty()
+    -> db.trips.find({ "tripduration": { "$lte" : 70 },
+                "usertype": { "$ne": "Subscriber" } }).pretty()
+    -> db.routes.find({ "$and": [ { "$or" :[ { "dst_airport": "KZN" },
+                                    { "src_airport": "KZN" }
+                                  ] },
+                          { "$or" :[ { "airplane": "CR2" },
+                                     { "airplane": "A81" } ] }
+                         ]}).pretty()
+    -> db.trips.find({ "$expr": { "$eq": [ "$end station id", "$start station id"] }
+              }).count()
+    -> db.trips.find({ "$expr": { "$and": [ { "$gt": [ "$tripduration", 1200 ]},
+                         { "$eq": [ "$end station id", "$start station id" ]}
+                       ]}}).count()
+    -> db.listingsAndReviews.find({ "amenities": {
+                                  "$size": 20,
+                                  "$all": [ "Internet", "Wifi",  "Kitchen",
+                                           "Heating", "Family/kid friendly",
+                                           "Washer", "Dryer", "Essentials",
+                                           "Shampoo", "Hangers",
+                                           "Hair dryer", "Iron",
+                                           "Laptop friendly workspace" ]
+                                         }
+                            }).pretty()
+    -> db.listingsAndReviews.find({ "amenities":
+        { "$size": 20, "$all": [ "Internet", "Wifi",  "Kitchen", "Heating",
+                                 "Family/kid friendly", "Washer", "Dryer",
+                                 "Essentials", "Shampoo", "Hangers",
+                                 "Hair dryer", "Iron",
+                                 "Laptop friendly workspace" ] } },
+                            {"price": 1, "address": 1}).pretty()
+
+    -> db.listingsAndReviews.find({ "amenities": "Wifi" },
+                           { "price": 1, "address": 1, "_id": 0 }).pretty()
+    -> db.listingsAndReviews.find({ "amenities": "Wifi" },
+                           { "price": 1, "address": 1,
+                             "_id": 0, "maximum_nights":0 }).pretty()
+    -> use sample_training
+    -> db.grades.findOne()
+    -> db.grades.find({ "class_id": 431 },
+               { "scores": { "$elemMatch": { "score": { "$gt": 85 } } }
+             }).pretty()
+    -> db.grades.find({ "scores": { "$elemMatch": { "type": "extra credit" } }
+               }).pretty()
+    -> use sample_training
+
+db.trips.findOne({ "start station location.type": "Point" })
+
+db.companies.find({ "relationships.0.person.last_name": "Zuckerberg" },
+                  { "name": 1 }).pretty()
+
+db.companies.find({ "relationships.0.person.first_name": "Mark",
+                    "relationships.0.title": { "$regex": "CEO" } },
+                  { "name": 1 }).count()
+
+
+db.companies.find({ "relationships.0.person.first_name": "Mark",
+                    "relationships.0.title": {"$regex": "CEO" } },
+                  { "name": 1 }).pretty()
+
+db.companies.find({ "relationships":
+                      { "$elemMatch": { "is_past": true,
+                                        "person.first_name": "Mark" } } },
+                  { "name": 1 }).pretty()
+
+db.companies.find({ "relationships":
+                      { "$elemMatch": { "is_past": true,
+                                        "person.first_name": "Mark" } } },
+                  { "name": 1 }).count()
+-> db.listingsAndReviews.find({ "amenities": "Wifi" },
+                           { "price": 1, "address": 1, "_id": 0 }).pretty()
+
+            (Using the aggregation framework find all documents that have Wifi as one of the amenities``*. Only include* ``price and address in the resulting cursor.)
+
+-> db.listingsAndReviews.aggregate([
+                                  { "$match": { "amenities": "Wifi" } },
+                                  { "$project": { "price": 1,
+                                                  "address": 1,
+                                                  "_id": 0 }}]).pretty()
+-> db.listingsAndReviews.findOne({ },{ "address": 1, "_id": 0 })
+-> db.listingsAndReviews.aggregate([
+                                  { "$project": { "address": 1, "_id": 0 }},
+                                  { "$group": { "_id": "$address.country",
+                                                "count": { "$sum": 1 } } }
+                                ])
+-> use sample_training
+
+db.zips.find().sort({ "pop": 1 }).limit(1)
+
+db.zips.find({ "pop": 0 }).count()
+
+db.zips.find().sort({ "pop": -1 }).limit(1)
+
+db.zips.find().sort({ "pop": -1 }).limit(10)
+
+db.zips.find().sort({ "pop": 1, "city": -1 })
+
+-> use sample_training
+
+db.trips.find({ "birth year": 1989 })
+
+db.trips.find({ "start station id": 476 }).sort( { "birth year": 1 } )
+
+db.trips.createIndex({ "birth year": 1 })
+
+db.trips.createIndex({ "start station id": 1, "birth year": 1 })
+
+*/
+/*
+    -> uploading image in MongoDB
+    -> fileupload library to upload file
+    -> enctype-> multi -> for upload the picture otherwise it will as text
+
+
+*/
+
+/*
+    -> middleware
+    -> next() function in middle ware : it handover control to next middleware , if there is not next middle ware then its goes to 
+        next route
+
+    
+*/
+
+2nd mid exam prepartion
+    -> MongoDB : local + Atlas
+    -> CRUD using pug with nodejs , ejs with nodjs
+    -> crud : creating an appliction which has navbar + crud including pic + card to show data and table
+    -> authentication + authorization
+    -> nodejs + express
+    -> mvc
+    -> 

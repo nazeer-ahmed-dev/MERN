@@ -52,5 +52,24 @@ app.listen(3000,()=>{
 */
 
 ////////////////////////
-//Class 2
+//Class Mongooes
 ////////////////////////
+
+const express = require("express")
+const req = require("express/lib/request")
+const path = require("path")
+const {render , compilerile} = require("pug")
+const app = express()
+
+mongoose.connect('mongodb://127.0.0.1:27017/dbname');
+
+app.get('/',function(req,res)
+{
+    
+})
+ 
+
+
+
+
+
