@@ -88,4 +88,36 @@ const view_by_id  = async(req,res)=>{
         }
     })
 }
-module.exports = {login_call,signup_call,home_call,search_call,insertData,upload,delete_by_id,view_by_id}
+
+const update_by_id = async (req,res)=>{
+    const {id} = req.params
+    const {name,email,password} = req.body
+    const image = req.file.filename
+
+    await user_data.findByIdAndUpdate(id,{
+        $set:{
+            name:name,
+            email:email,
+            password:password,
+            image:image,
+        }
+    })
+
+    res.redirect('/home')
+}
+const to_print  = async (req,res)=>{
+    const {id} = req.params
+    // const value = await user_data.findById(id)
+    // res.render('search',{title:"Home",users:value,})
+    user_data.findById(id).exec((err,users)=>{
+        if(err)
+        {
+            res.send({message:"error"})
+        }
+        else{
+            res.render('editing',{title:"Editing",users:users,})
+        }
+    })
+
+}
+module.exports = {login_call,signup_call,home_call,search_call,insertData,upload,delete_by_id,view_by_id,update_by_id,to_print}

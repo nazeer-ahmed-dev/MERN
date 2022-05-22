@@ -1,0 +1,37 @@
+<%- include('header') -%>
+
+<div class="text-center center" style="margin-top: 50px;"><h2>Edit</h2></div>
+<p></p>
+e
+ 
+<div class="container w-25 border py-5 text-center">
+    <form action="/update/<%= users._id %>" method="post" enctype="multipart/form-data">
+        
+        <div class="mb-3 ">
+            <!-- <label for="email1" class="form-label">Email</label> -->
+            <input type="file" name="image" />
+        </div>
+        <div class="mb-3 ">
+            <!-- <label for="email1" class="form-label">Email</label> -->
+            <input class="form-control" type="text" name="name" id="email1" placeholder="Name" value="<%= users.name %>"/>
+        </div>
+        <div class="mb-3 ">
+            <!-- <label for="email1" class="form-label">Email</label> -->
+            <input class="form-control" type="email" name="email" id="email1" placeholder="Email" value="<%= users.email %>"/>
+        </div>
+        <div class="mb-3">
+            <!-- <label for="password1" class="form-label">password</label> -->
+            <input class="form-control" type="password" name="password" id="password1" placeholder="Password" value="<%= users.password %>"/>
+        </div>
+        <div class="mb-3">
+            <!-- <label for="password1" class="form-label">password</label> -->
+            <input class="form-control" type="password" name="password1" id="password2" placeholder="Confirm Password" value="<%= users.password %>"/>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-secondary" type="submit">Update</button>
+
+        </div>
+    </form>
+</div>
+
+<%- include('footer') -%>
