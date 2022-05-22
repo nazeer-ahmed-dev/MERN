@@ -52,12 +52,40 @@ const signup_call = async(req,res)=>{
 }
 
 const home_call =  async(req,res)=>{
-    res.render('home',{title:"Home"})
+    user_data.find().exec((err,users)=>{
+        if(err)
+        {
+            res.send({message:"error"})
+        }
+        else{
+            res.render('home',{title:"Homeaa",users:users,})
+        }
+    })
+    // res.render('home',{title:"Home"})
 }
 
 
 const search_call = async(req,res)=>{
-    res.render('search  ',{title:"Search"})
+    res.render('search',{title:"Search"})
 }
 
-module.exports = {login_call,signup_call,home_call,search_call,insertData,upload}
+const delete_by_id = async(req,res)=>{
+    const {id} = req.params
+    await user_data.findByIdAndRemove(id).exec();
+    res.redirect("/home")
+}
+const view_by_id  = async(req,res)=>{
+    const {id} = req.params
+    // const value = await user_data.findById(id)
+    // res.render('search',{title:"Home",users:value,})
+    user_data.findById(id).exec((err,users)=>{
+        if(err)
+        {
+            res.send({message:"error"})
+        }
+        else{
+            res.render('search',{title:"Searching",users:users,})
+        }
+    })
+}
+module.exports = {login_call,signup_call,home_call,search_call,insertData,upload,delete_by_id,view_by_id}

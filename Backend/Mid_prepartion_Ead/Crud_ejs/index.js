@@ -49,7 +49,7 @@ app.set("view engine","ejs")
 app.use("/",express.static(path.resolve('assets/css')))
 app.use("/",express.static(path.resolve('assets/img')))
 app.use("/",express.static(path.resolve('assets/js')))
-
+app.use("/",express.static(path.resolve('uploads/')))
 // app.set("/css",express.static(path.resolve(__dirname+"assets/css")))
 // app.set("/img",express.static(path.resolve(__dirname+"assets/img")))
 // app.set("/js",express.static(path.resolve(__dirname+"assets/js")))
