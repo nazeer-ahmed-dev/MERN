@@ -43,8 +43,14 @@ const insertData = async(req,res)=>{
 
     
 }
+
+
 const login_call = async(req,res)=>{
     res.render('login',{title:"Login"})
+}
+
+const bcrpyt_call = async(req,res)=>{
+    res.render('bcpt',{title:"Login"})
 }
 
 const signup_call = async(req,res)=>{
@@ -120,4 +126,10 @@ const to_print  = async (req,res)=>{
     })
 
 }
-module.exports = {login_call,signup_call,home_call,search_call,insertData,upload,delete_by_id,view_by_id,update_by_id,to_print}
+const conversting_data = async (req,res)=>{
+   
+    console.log("running!!!!")
+    console.log(req.body)
+    
+}
+module.exports = {login_call,signup_call,home_call,search_call,insertData,upload,delete_by_id,view_by_id,update_by_id,to_print,bcrpyt_call,conversting_data}
